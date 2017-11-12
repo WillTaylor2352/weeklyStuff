@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cycle Plugin</title>
+    <!-- Normal style sheet used for layout and general formatting. -->
+    <link href="main.css" rel="stylesheet">
+    <!-- jQuery library reference. Latest is always referenced from jQuery's CDN. -->
+     <script src="http://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script>
+    <!-- Reference to the jQuery Cycle plugin. -->
+    <script src="http://malsup.github.com/jquery.cycle2.js"></script>
+</head>
+<body>
+    <main>
+        <h1>About Us</h1>
+        <p>On June 6th, 2012, Vecta Corp. moved into its new 4 story, 35,000 square foot facilty. 
+        	Below are a few pictures of the new facility.</p>
+        <div class="cycle-slideshow"
+            data-cycle-fx="scrollHorz"
+			data-cycle-timeout= "1000"
+		    data-cycle-caption="#custom-caption"
+		    data-cycle-caption-template="Slide {{slideNum}}: {{cycleTitle}}">
+        	<img src="images/building_01.jpg" alt="" data-cycle-title="Front">
+            <img src="images/building_02.jpg" alt="" data-cycle-title="Left side">
+            <img src="images/building_03.jpg" alt="" data-cycle-title="Back">
+            <img src="images/building_04.jpg" alt="" data-cycle-title="Office">
+            <img src="images/building_05.jpg" alt="" data-cycle-title="Conference room">
+            <!-- empty element for caption -->
+            <div id="custom-caption"></div>
+			<!--
+			data-cycle-pause-on-hover="true"
+			data-cycle-timeout= "0"
+			data-cycle-prev= "#prev"
+			data-cycle-next= "#next"
+			<div class="center">
+					<a href=# id="prev">Prev</a> 
+					<a href=# id="next">Next</a>
+			</div>-->
+        </div>
+    </main>
+</body>
+</html>

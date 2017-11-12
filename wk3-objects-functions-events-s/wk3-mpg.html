@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> Calculate MPG </title>
+<script src="wk3-mpg.js"> </script>
+</head>
+<body>
+	<h1>Calculate MPG</h1>
+	<script>
+		var today = new Date();	
+		document.write("Today's date: " + today.toDateString());
+	</script>
+	<p>
+	<form id = "mpg_app" name = "mpg_app" 
+	action = "wk3-miles.html" method = "get">
+		<label for= "miles">Enter the miles driven: </label> 
+		<input type="text" id = "miles"> 
+		<span id = "error_miles" > * </span> <br><br>
+		
+		<label for= "gallons">Enter gallons of gas used: </label> 
+		<input type="text" id = "gallons"> 
+		<span id = "error_gallons"> * </span> <br><br>
+		
+		<label for= "result">Miles per gallon: </label>
+		<input type="text" id="answer" disabled>
+		<br><br>
+		<input type="button" id = "execute" value = "Execute Program">
+	</form>
+	</p>
+</body>
+</html>

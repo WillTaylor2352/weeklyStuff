@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Slider - Colorpicker</title>
+	<!-- Custom Widget Theme-->
+	<link rel="stylesheet" href="themes/custom/jquery-ui.css">	
+	<!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/eggplant/jquery-ui.css">	
+	-->
+	<!-- jQuery library first-->
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script>
+	<!-- jQuery UI Library -->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+	integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+	crossorigin="anonymous"></script>	
+	<!-- Your CSS file including widget styling-->
+	<link rel="stylesheet" href="demos.css">
+	<!--More styling for the widgets -->
+	<style>
+	#red, #green, #blue{
+		float: left;
+		clear: left;
+		width: 300px;
+		margin: 15px;
+	}
+	span {
+		float: left;
+		clear: left;
+		font-size: 2em;
+	}
+
+	#swatch{
+		width: 120px;
+		height: 100px;
+		margin-top: 18px;
+		margin-left: 350px;
+		background-image: none;
+	}
+	/*#red .ui-slider-range { background: #ef2929; }
+	#red .ui-slider-handle { border-color: #ef2929; }
+	#green .ui-slider-range { background: #8ae234; }
+	#green .ui-slider-handle { border-color: #8ae234; }
+	#blue .ui-slider-range { background: #729fcf; }
+	#blue .ui-slider-handle { border-color: #729fcf; }*/
+	</style>
+	<!---Plugin script should go here if you have a plugin -->	
+	<!-- Your script -->
+	<script src="wk11-in-class.js"> </script>
+</head>
+<body>
+<h1>Simple Colorpicker</h1>
+
+<div id="red"></div>
+<div id="green"></div>
+<div id="blue"></div>
+<div id="swatch"></div>
+
+<span id="rgb-v"> RGB: </span>
+
+<!--Add form dialog here -->
+<form>
+	<br><br><br>
+	<br><input id="redForm" name="Red" type="text" disabled>
+	<br><input id="greenForm" name="Green" type="text" disabled>
+	<br><input id="blueForm" name="Blue" type="text" disabled>
+	
+</form>
+<br>&nbsp&nbsp&nbsp&nbsp&nbsp
+
+<!-- The button that opens the dialog -->
+<input type="button" id="quickView" value="Quick View">
+
+</body>
+</html>

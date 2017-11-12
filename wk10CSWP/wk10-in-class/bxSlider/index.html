@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bxSlider Plugin</title>
+    <!-- Normal style sheet -->
+    <!--<link href="main.css" rel="stylesheet">-->
+    <!-- bxSlider styles -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <!-- jQuery library -->
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script>
+	<!--Alternate jQuery link <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+	<!-- The bxSlider plugin -->
+	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <!-- Call to the bxSlider function -->
+    <script>
+	
+		var swapImage = function(){
+			$("#imgTitle").html($(this).attr("title"));
+			$("#enlargedImage").attr("src", $(this).attr("src"));
+		}
+	
+    	$(document).ready(function() {
+        	$(".slider").bxSlider({
+			  //auto: true,
+			  //autoControls: true,
+			  mode: 'fade',
+			  captions: true,
+			  //minSlides: 2,
+			  //maxSlides:2,
+			  slideWidth: 250,
+			  //slideMargin: 10
+			});
+			
+			var swapImage = function(){
+			$("#imgTitle").html($(this).attr("title"));
+			$("#enlargedImage").attr("src", $(this).attr("src"));
+		}
+			
+			$(".slider img").click(swapImage);
+    	});
+    </script>
+</head>
+
+<body>
+    <main>
+        <h1>About Us</h1>
+        <p>On June 6th, 2012, Vecta Corp. moved into its new 4 story, 35,000 square foot facilty. 
+        	Below are a few pictures of the new facility.</p>
+        <div class="slider">
+            <div><img src="images/building_01.jpg" alt="" title="Front"></div>
+            <div><img src="images/building_02.jpg" alt="" title="Left side"></div>
+            <div><img src="images/building_03.jpg" alt="" title="Rear"></div>
+            <div><img src="images/building_04.jpg" alt="" title="Offices"></div>
+            <div><img src="images/building_05.jpg" alt="" title="Conference room"></div>
+        </div>
+		<div id="container">
+			<p id="imgTitle"></p>
+			<img id="enlargedImage" src="">
+		</div>
+    </main>
+</body>
+</html>

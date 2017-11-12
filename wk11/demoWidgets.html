@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI Datepicker</title>
+	<!-- theme for widgets-->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/pepper-grinder/jquery-ui.css">
+	
+	<!-- jQuery library first-->
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script>
+
+	<!-- jQuery UI library second
+	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>	
+	-->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+			integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+			crossorigin="anonymous"></script>
+	<!-- Your css file including widget styling-->
+	<link rel="stylesheet" href="demos.css">	
+	<!--personal styling for the widgets -->
+	<style>
+	#slider {
+		width: 100px;
+	}
+	#dialog {
+		display: none;
+	}
+	</style>
+	<!-- Your script-->
+	<script src="demoWidgets.js"></script>
+</head>
+<body>
+
+<!-- Form with DatePicker textBox and Slider-->
+<div id="dateSlider">
+<form>
+	<p>Date From: <input type="text" id="datepickerfrom"></p>
+	<p>Date To: <input type="text" id="datepickerto"></p>
+
+	<span id="sliderVal"> 0 </span>
+	<div id="slider"></div>
+	<br><br>
+</form>
+</div>
+<!-- Form Dialog that opens on Button Click. You can have multiple
+forms like this and open the one that you want on a Button click-->
+<div id="dialog" title="Basic dialog">
+	<form>
+	<fieldset>
+		<label for="name">Name</label>
+		<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />
+		<br><br>
+		<label for="email">Email</label>
+		<input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all" />
+		<br><br>
+		<label for="password">Password</label>
+		<input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all" />
+	</fieldset>
+	</form>
+</div>
+<!-- The button that opens the dialog -->
+<input type="button" id="quickView" value="Quick View">
+
+<!-- Tab Content-->
+<div id="tabs">	
+	<ul>		
+	<li><a href="#tabs-1">TAB 1</a></li>		
+	<li><a href="#tabs-2">TAB 2</a></li>		
+	<li><a href="#tabs-3">TAB 3</a></li>	
+	</ul>	
+	<div id="tabs-1"> <p> TAB CONTENT 1 </p> </div>	
+	<div id="tabs-2"> <p> TAB CONTENT 2 </p> </div>	
+	<div id="tabs-3"> <p> TAB CONTENT 3 </p> </div>
+</div>
+</body>
+</html>
