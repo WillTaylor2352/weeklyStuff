@@ -69,7 +69,14 @@ $(document).ready(function(){
 						/***4. a. Add HTML code for a form dialog that has a textArea.   
 						          Look at the demoWidgets.html file.  
 							   b. Add code here to display the RGB & Hex values in 
-							      a textArea when the Show button is clicked	***/  		
+							      a textArea when the Show button is clicked	***/
+							var red = $("#red").slider("value");
+							var green = $("#green").slider("value");
+							var blue = $("#blue").slider("value");
+							$("#redqv").val($("#red").slider("value"));
+							$("#greenqv").val($("#green").slider("value"));
+							$("#blueqv").val($("#blue").slider("value"));
+							$("#hexValqv").val("#" + hexFromRGB(red,green,blue));
 						}//end Show	
 					 }//end Button
 				});// end dialog

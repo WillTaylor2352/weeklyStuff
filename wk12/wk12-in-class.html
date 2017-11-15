@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Information</title>
+    <!-- Normal style sheet used for layout and general formatting. -->
+    <link href="styles.css" rel="stylesheet">
+    <!-- jQuery library reference. Latest is always referenced from jQuery's CDN. -->
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script>
+	$.get("books.xml", function(data) {
+				//$("#student").html("");
+				//alert(data);
+				var studentArray = $(data).find("book");
+				
+				studentArray.each(function() {	
+					var sname = $(this).find("title").text();
+					//var last = $(this).find("name").children().eq(1).text();
+					var sid = $(this).find("author").text();
+					var fees = $(this).find("price").text();
+					var units = $(this).find("title").attr("id");
+					//alert("---" + sname + "---" + sid + "---" + fees + "---" + units);
+					$("#student").append(
+						"<h3>" + sname + "</h3>ID:" + 
+						sid + "<br>Fees to be paid:" + 
+						fees + " " + units + "<br>");
+				});
+			}, "xml");
+			
+			/*$.get("http://api.npr.org/query?id=1004&apiKey=MDIxMTk5MzMxMDE0NDcxMDgxMjU0NTI0OA000", function(data) {
+				//$("#student").html("");
+				//alert(data);
+				var studentArray = $(data).find("story");
+				
+				studentArray.each(function() {	
+					var sname = $(this).find("title").eq(0).text();
+					//alert(name);
+					//var last = $(this).find("name").children().eq(1).text();
+					//var sid = "";
+					//var sid = $(this).find("name").text();
+					//var fees = $(this).find("byline").children().eq(0).text();
+					//var units = $(this).find("link").eq(0).text();
+					//alert("---" + sname + "---" + sid + "---" + fees + "---" + units);
+					$("#student").append(sname + "<br><br>");
+					//	"<h3>" + sname + "</h3>" + 
+					//	sid + "Written by:" + 
+					//	fees + "<br><a href='" + units + "'>Link to Full Article</a><br>");
+				});
+			}, "xml");
+			*/
+					$.get("https://itunes.apple.com/us/rss/topsongs/limit=10/xml", function(data) {
+				//$("#student").html("");
+				//alert(data);
+				var studentArray = $(data).find("entry");
+				
+				studentArray.each(function() {	
+					var sname = $(this).find("title").text();
+					//var last = $(this).find("name").children().eq(1).text();
+					var sid = $(this).find("im\\:price, price").text();
+					//var sid = $(this).find("name").text();
+					//var fees = $(this).find("byline").children().eq(0).text();
+					//var units = $(this).find("link").eq(0).text();
+					//alert("---" + sname + "---" + sid + "---" + fees + "---" + units);
+					$("#student").append(
+						"<h3>" + sname + "</h3>" + 
+						"Price:" + sid );
+				});
+			}, "xml");
+		
+	</script>
+</head>
+
+<body>
+<section id="container">
+    <header></header>
+    
+    <nav>
+        <ul>
+            <li><a href="http://www.ucblueash.edu">UCBA</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="fsupport.html">Faculty Support</a></li>
+            <li><a href="support.html">Student Support</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    
+    <section id="content">
+        <h2>Students of UCBA- XML Data</h2>
+		<!--<input type= "text" id="userTop" name= "userTop">
+		<input type="button" id ="gButton" name = "gButton">-->
+		<div id="student"></div>
+    </section>
+    
+    <footer></footer>
+</section>
+</body>
+</html>
