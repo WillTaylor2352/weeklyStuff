@@ -2,6 +2,12 @@ body {
 	font-size: 62.5%;
 }
 
+#dialogQV {
+	display: none;
+	
+}
+
+
 table {
 	font-size: 1em;
 }

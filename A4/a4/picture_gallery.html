@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Picture Gallery</title>
+    <!-- Plugin CSS for bxSlider -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+	<!-- Widget CSS-->
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/eggplant/jquery-ui.css">
+	<!--<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/sunny/jquery-ui.css">-->
+    <!-- jQuery library-->
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script>
+	<!-- jQuery UI Library -->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+	integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+	crossorigin="anonymous"></script>		
+   	<!-- The bxSlider plugin -->
+	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+	<!-- To make sure the dialog is not displayed on page load -->
+	<script src="require.js"></script>
+	<style>
+	#dialogQV {
+		display: none;
+	}
+	</style>
+	<!-- This is your general CSS for the site.-->
+    <link href="styles.css" type="text/css" rel="stylesheet">
+    <!-- Your JS file -->
+    <script type="text/javascript" src="picture_gallery.js"></script>
+</head>
+
+<body>
+
+    <section>
+        <h1>Perspective</h1>
+        <p id="breifDesc">Life as it has changed<span id="pSpan">, we can all agree it has.</span></p>
+		<!-- Add links to other sites -->
+		<ul class="slider">
+            <li><img src="images/imagesForA4/martys.jpg" id="martys" 
+				title = "Marty's corner store" 	
+				desc="The store I went looking for a lottery ticket. Echoing halls of silence."></li>
+				
+            <li><img src="images/imagesForA4/school.jpg" id="school" 
+				title = "Elementary school" 		
+				desc="My childhood escape, the home away from home. Where I thought teachers lived."></li>
+				
+            <li><img src="images/imagesForA4/bicks.jpg"  id="bicks" 
+				title = "Bick's driving school" 	
+				desc="I met her here and that was the end. Then she called, and it ended."></li>
+				
+            <li><img src="images/imagesForA4/gate.jpg" 	 id="gate" 
+				title = "Gate to the field" 		
+				desc="Field where we all hung. Summer nights with starry skies twinkling down."></li>
+				
+            <li><img src="images/imagesForA4/static.jpg" id="static" 
+				title = "Static, unchanging" 	
+				desc="One of only three things that always remain. Life, shadows and.."></li>
+				
+			<li><img src="images/imagesForA4/friend.jpg" id="friend" 
+				title = "A good Friend" 			
+				desc="I did not know him. But the dilapidated stone of his life scattered around left little secrets. "></li>
+        </ul>
+		<!--Add dialog form here-->
+    </section>
+	<div id="dialogQV" title="Detailed info">
+		<form>
+		<fieldset>
+			<label for="titlePop">Title: </label>
+			<input type="text" name="titlePop" id="titlePopShow" disabled>
+		
+			<label for="descPop">Description: </label>
+			<br>
+			<textarea rows="5" name="descPop" id="descPopShow" disabled></textarea>
+			
+			<label for="linkPop">Related link: </label>
+			<br>
+			<p name="linkPop" id="linkPopShow"></p>
+			
+		</fieldset>
+		</form>
+	</div>
+</body>
+
+</html>

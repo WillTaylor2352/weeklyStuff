@@ -54,7 +54,7 @@ $(document).ready(function()
 		/***Button/Dialog***/
 		/*******************/		
 		//dialog form that opens on a button click
-/*	 	$("#quickView" ).click(function() {
+	 	$("#quickView" ).click(function() {
 				$( "#dialog" ).dialog({
 					modal: true,
 					width: 300,
@@ -68,7 +68,7 @@ $(document).ready(function()
 					 }//end Button
 				});// end dialog
 			});	//end click 
-*/		
+		
 		/***Tabbed Content***/
 		/********************/
 		/*$("#tabs").tabs({

@@ -6,6 +6,8 @@
 ***/
 $(document).ready(function(){
 		
+
+		
 		//this function converts a RGB value into a HEX
 		//returns a string of HEX value
 		//do not have to comment
@@ -20,7 +22,7 @@ $(document).ready(function(){
 					hex[ nr ] = "0" + val;
 				}
 			});
-			return hex.join( "" ).toUpperCase();
+			return "#" + hex.join( "" ).toUpperCase();
 		}
 		//function that is called when slider is moved
 		function refreshSwatch() {
@@ -28,6 +30,7 @@ $(document).ready(function(){
 			var red = $( "#red" ).slider( "value" );
 			var green = $( "#green" ).slider( "value" );
 			var blue = $( "#blue" ).slider( "value" );
+			
 			var hex = hexFromRGB( red, green, blue );
 			$( "#swatch" ).css( "background-color", "#" + hex );
 			$("#redForm").val($("#red").slider("value"));
@@ -56,11 +59,16 @@ $(document).ready(function(){
 				b. Add code in the refreshSwatch function above to display
 				   the R, G and B values and Hex value as the slider is changed
 		***/
-				
+		
+		
 		$("#quickView" ).click(function() {
-				$( "#dialog" ).dialog({
+				$("#redPopShow").val($("#red").slider("value"));
+				$("#greenPopShow").val($("#green").slider("value"));
+				$("#bluePopShow").val($("#blue").slider("value"));			
+				$( "#dialogQV" ).dialog({
 					modal: true,
 					width: 300,
+						
 					buttons: {
 						Cancel: function(){
 							$(this).dialog("close");
@@ -70,6 +78,13 @@ $(document).ready(function(){
 						          Look at the demoWidgets.html file.  
 							   b. Add code here to display the RGB & Hex values in 
 							      a textArea when the Show button is clicked	***/  		
+							$("#hexVal").val(hexFromRGB(
+								$( "#red" ).slider( "value" ),
+								$( "#green" ).slider( "value" ),
+								$( "#blue" ).slider( "value" )
+							));
+
+							
 						}//end Show	
 					 }//end Button
 				});// end dialog
