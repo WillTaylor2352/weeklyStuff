@@ -34,25 +34,48 @@
 </head>
 
 <body>
+<!--code for making selections after this point-->
 	<p>
 		Please select the number of songs you would like to display.
 	</p>
+	<div id="selector">
+		<label for="countrySelect">Select a country</label>
+		<select name="countrySelect" id="countrySel">
+			<option disabled >Please pick one</option>
+			<option value="us" selected>United States</option>
+			<option value="in">India</option>
+			<option value="tr">Turkey</option>
+			<option value="jp">Japan</option>
+		</select>
+	</div>
 	
 	<div id="slider"></div>
 	
-	<input type="text" id="amount" value="test">
+	<input type="text" id="numberOfSongs" value="10">
+	<input type="button" id="submit" value="Submit">
 	
-	<!--for testing jquery is operational-->
-	<!--<input type="text" id="testf" disabled>
-	<input type="button" id="testb" value="test">
-	-->
-</body>
-
-<footer>
-	<p>
-		&copy William Taylor <a href="mailto:willtaylorofficial@yahoo.com?Subject=QCC%20Final%20Project" target="_top">willtaylorofficial@yahoo.com</a> 
-	</p>
+<!--code for displaying data after this point-->	
+	<div id="dataDiv">
+		<p id="data"></p>
+	</div>
 	
-</footer>
+	<input type="text" id="etitle" value="" disabled>
+	<input type="text" id="eaname" value="" disabled>
+	<input type="text" id="ealname" value="" disabled>
+	<input type="text" id="eimgsrc" value="" disabled>
+	<input type="text" id="eaudio" value="" disabled>
 	
+	
+	
+	
+	
+	
+<!--code for the footer after this point-->
+	<div id="footer">
+		<p>
+			&copy William Taylor <a href="mailto:willtaylorofficial@yahoo.com?Subject=QCC%20Final%20Project" target="_top">willtaylorofficial@yahoo.com</a> 
+		</p>
+	</div>
+	
+</body>	
 </html>

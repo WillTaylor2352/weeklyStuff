@@ -1,6 +1,19 @@
+#footer {
+	margin: auto;
+	width:100%;
+	text-align:center;
+	position:fixed;
+	bottom:0px;
+}
 #slider{
 	width: 20em;
 }
 #amount{
 	margin:5px;
+}
+#selector{
+	margin:5px;
+}
+#eaudio{
+	margin-bottom:40px;
 }

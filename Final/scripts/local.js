@@ -35,13 +35,13 @@ $(document).ready(function() {
 	
 	$("#slider").slider({
 		
-		value: 200,
+		value: 10,
 		min: 10,
 		max: 300,
 		step: 10,
 		//value: select[ 0 ].selectedIndex + 10,
 		slide: function( event, ui ) {
-			$( "#amount" ).val( ui.value );
+			$( "#numberOfSongs" ).val( ui.value );
 		}
     
     //$( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) );
@@ -52,4 +52,38 @@ $(document).ready(function() {
 	});
 	
 	$( "#amount" ).val($( "#slider" ).slider( "value" ) );
+	
+	$("#submit").click(function(){	
+		var srchUrl = "https://itunes.apple.com/" + $("#countrySel").val() + "/rss/topsongs/limit=" + 
+							$("#numberOfSongs").val() + "/xml";
+	
+		$.get(srchUrl, function(data) { // supply with src to itunes xml page
+			var entryArray = $(data).find("entry");// finds entries in the rss feed
+	
+			entryArray.each(function() {	
+				
+				
+				var eTitle = $(this).find("title").text();
+				var eArtistName = $(this).find("im\\:artist").text();
+				var eAlbumName = $(this).find("im\\:collection im\\:name").text();
+				var eArtistImage = $(this).find("im\\:image[height='170']").text();
+				var eAudio = $(this).find("link[title='Preview']").attr("href");
+				
+			/*	$("#etitle").val(eTitle);
+				$("#eaname").val(eArtistName);
+				$("#ealname").val(eAlbumName);
+				$("#eimgsrc").val(eArtistImage);
+				$("#eaudio").val(eAudio);
+			*/	
+				//console.log("---" + sname + "---" + sid + "---" + fees + "---" + units);
+				$("#data").append(
+					"<br>Title: " + eTitle + 
+					"<br>Artist name: " + eArtistName + 
+					"<br>Album name: " + eAlbumName +
+					"<br>Artist's image: " + eArtistImage +
+					"<br>Audio: " + eAudio + "<br>------------------"
+					);
+			});
+		}, "xml");
+	});
 });
