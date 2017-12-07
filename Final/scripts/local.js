@@ -23,7 +23,7 @@
 *
  */
  var sound;
- var audio;
+ var audio = new Audio();
  
 var loadSlider = function(){
 	var bxSlider = $("#bxSlider").bxSlider({
@@ -40,30 +40,22 @@ var loadSlider = function(){
 		touchEnabled:false,
 		onSliderLoad: function(currentIndex) {     
 			$('#bxSlider').children().eq(currentIndex).addClass('active-slide');
-			//sound = $(".active-slide").find("audio").attr("src");
-			//audio = new Audio(sound);
-			audio = document.getElementById("audios");
+			
 		},
 		onSlideAfter: function($slideElement){
 			$('#bxSlider').children().removeClass('active-slide');
 			$slideElement.addClass('active-slide');
-			//sound = $(".active-slide").find("audio").attr("src");
-			audio = document.getElementById("audios");//new Audio(sound);
-			audio.currentTime = 0;
-		},
-		onSlideBefore: function($slideElement){
-		//This majestic code found here: https://stackoverflow.com/questions/2988050/html5-audio-player-jquery-toggle-click-play-pause
-		//Thank you user: Thash. You are a wonderful person.
-			$("#audios").trigger("pause");
 			
-			//alert(audio);
-			/*if(audio.paused === true){
-				
-				alert(sound);
-			}
-			else{
-				audio.pause();
-			}*/
+		},
+		onSlideBefore: function($slideElement, oldIndex){
+		//The idea for this code found here: https://stackoverflow.com/questions/2988050/html5-audio-player-jquery-toggle-click-play-pause
+		//Thank you user: Thash. (.trigger)
+			$('#bxSlider').children().eq(oldIndex).find("#audios").trigger("pause");
+			
+		//The idea for this code found here: 
+		//Thank you user: jony89 ([index])
+			$('#bxSlider').children().find("#audios")[oldIndex].currentTime = 0;
+			
 		}
 		
 	});

@@ -10,10 +10,12 @@ table{
 }
 th{
 	width:80px !important;
+	padding-left:5px !important;
 }
 th, td{
 	padding:5px;
 }
+
 .siteData{
 	width:400;
 	height:100px;
@@ -38,7 +40,11 @@ th, td{
 
 .bx-wrapper{
     max-width: auto;
+	margin:auto;
+	margin-bottom:60px;
     width: 100%;
+	-webkit-box-shadow:none;
+	border:none;
 }
 .bx-prev{
 	top:103% !important;
@@ -52,7 +58,7 @@ th, td{
 	width:170px;
 }
 #row1 td{
-	height:2.5em;
+	height:3.5em;
 }
 #bxSlider{
 	margin-top:0px;
@@ -80,11 +86,18 @@ th, td{
 	background-color:#f8f8f8;
 */
 }
+#mainTitle{
+	
+}
 #footer2 {
+	position: absolute;
+	right: 0;
+  bottom: 0;
+  left: 0;
 	clear:both;	
 	width:100%;
 	margin:0px;
-	padding:1px 1px 1px 1px;	
+	padding:0px;	
 	background-color: #efefef;
 	text-align: center;
 }
