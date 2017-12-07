@@ -1,11 +1,95 @@
+div {
+	padding:0px;
+	margin:5px;
+}
+body{
+	margin:0px;
+}
+table{
+	width:100%;
+}
+th{
+	width:80px !important;
+}
+th, td{
+	padding:5px;
+}
+.siteData{
+	width:400;
+	height:100px;
+	margin:auto;
+	
+}
+.active-slide{
+	padding:0px;
+	top: 0px;
+	left:0px;
+	bottom:0px;
+	right:0px;
+	
+}
+.bx-viewport{
+	margin:0px;
+}
+.bxslider{
+    padding: 0;
+	
+}
+
+.bx-wrapper{
+    max-width: auto;
+    width: 100%;
+}
+.bx-prev{
+	top:103% !important;
+	margin-top:0px !important;
+}
+.bx-next{
+	top:103% !important;
+	margin-top:0px !important;
+}
+.activeImg{
+	width:170px;
+}
+#row1 td{
+	height:2.5em;
+}
+#bxSlider{
+	margin-top:0px;
+}
+#bxSlider li{
+	left:0px;
+}
 #footer {
-	margin: auto;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width:100%;
+  margin:0px;
+  background-color: #efefef;
+  text-align: center;
+/*	margin: auto;
 	width:100%;
 	text-align:center;
 	position:fixed;
 	bottom:0px;
+	left:0px;
+	right:0px;
+	height:3em;
+	background-color:#f8f8f8;
+*/
 }
-#slider{
+#footer2 {
+	clear:both;	
+	width:100%;
+	margin:0px;
+	padding:1px 1px 1px 1px;	
+	background-color: #efefef;
+	text-align: center;
+}
+
+#quantitySlider{
 	width: 20em;
 }
 #amount{
@@ -16,4 +100,8 @@
 }
 #eaudio{
 	margin-bottom:40px;
+}
+#pfooter{
+	margin:10px 0px 10px 0px;
+	
 }

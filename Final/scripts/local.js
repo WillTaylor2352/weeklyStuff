@@ -22,23 +22,60 @@
 *
 *
  */
-$(document).ready(function() {
-	$("#testb").click(function(){
+ var sound;
+ var audio;
+ 
+var loadSlider = function(){
+	var bxSlider = $("#bxSlider").bxSlider({
+		//auto: true,
+		pager:true,
+		pagerType:'short',
+		autoControls: true,
+		mode: 'fade',
+		captions: true,
+		//adaptiveWidth: true,
+		adaptiveHeight:true,
+		slideWidth:450,
+		//height:350,
+		touchEnabled:false,
+		onSliderLoad: function(currentIndex) {     
+			$('#bxSlider').children().eq(currentIndex).addClass('active-slide');
+			//sound = $(".active-slide").find("audio").attr("src");
+			//audio = new Audio(sound);
+			audio = document.getElementById("audios");
+		},
+		onSlideAfter: function($slideElement){
+			$('#bxSlider').children().removeClass('active-slide');
+			$slideElement.addClass('active-slide');
+			//sound = $(".active-slide").find("audio").attr("src");
+			audio = document.getElementById("audios");//new Audio(sound);
+			audio.currentTime = 0;
+		},
+		onSlideBefore: function($slideElement){
+		//This majestic code found here: https://stackoverflow.com/questions/2988050/html5-audio-player-jquery-toggle-click-play-pause
+		//Thank you user: Thash. You are a wonderful person.
+			$("#audios").trigger("pause");
+			
+			//alert(audio);
+			/*if(audio.paused === true){
+				
+				alert(sound);
+			}
+			else{
+				audio.pause();
+			}*/
+		}
 		
-		if($("#testf").val() === "coolio"){
-			$("#testf").val("");
-		}
-		else{
-			$("#testf").val("coolio");
-		}
 	});
-	
-	$("#slider").slider({
+}
+$(document).ready(function() {
+//code for quantity Slider
+	$("#quantitySlider").slider({
 		
-		value: 10,
-		min: 10,
-		max: 300,
-		step: 10,
+		value: 5,
+		min: 5,
+		max: 30,
+		step: 1,
 		//value: select[ 0 ].selectedIndex + 10,
 		slide: function( event, ui ) {
 			$( "#numberOfSongs" ).val( ui.value );
@@ -51,17 +88,22 @@ $(document).ready(function() {
 	*/
 	});
 	
-	$( "#amount" ).val($( "#slider" ).slider( "value" ) );
+	$( "#amount" ).val($( "#quantitySlider" ).slider( "value" ) );
 	
 	$("#submit").click(function(){	
 		var srchUrl = "https://itunes.apple.com/" + $("#countrySel").val() + "/rss/topsongs/limit=" + 
 							$("#numberOfSongs").val() + "/xml";
-	
+		$(".bx-wrapper").remove();
+			$("#bxSlideWrap").append(
+				"<ul id='bxSlider'></ul>"
+			);
 		$.get(srchUrl, function(data) { // supply with src to itunes xml page
+			
 			var entryArray = $(data).find("entry");// finds entries in the rss feed
 	
+			
+	
 			entryArray.each(function() {	
-				
 				
 				var eTitle = $(this).find("title").text();
 				var eArtistName = $(this).find("im\\:artist").text();
@@ -76,14 +118,69 @@ $(document).ready(function() {
 				$("#eaudio").val(eAudio);
 			*/	
 				//console.log("---" + sname + "---" + sid + "---" + fees + "---" + units);
-				$("#data").append(
-					"<br>Title: " + eTitle + 
-					"<br>Artist name: " + eArtistName + 
-					"<br>Album name: " + eAlbumName +
-					"<br>Artist's image: " + eArtistImage +
-					"<br>Audio: " + eAudio + "<br>------------------"
-					);
+				$("#bxSlider").append( 
+					"<li>" +
+						"<table class='siteData' border='1'>" +
+							"<tr id='row1'>" +
+								"<th>" +
+									"Title" +
+								"</th>" +
+								"<td>" +
+									eTitle +
+								"</td>" +
+							"</tr>" +
+							"<tr id='2row'>" +
+								"<th>" +
+									"Artist" +
+								"</th>" +
+								"<td>" +
+									eArtistName +
+								"</td>" +
+							"</tr>" +
+							"<tr id='3row'>" +
+								"<th>" +
+									"Album" +
+								"</th>" +
+								"<td>" +
+									eAlbumName +
+								"</td>" +
+							"</tr>" +
+							"<tr id='4row'>" +
+								"<th>" +
+									"Album art" +
+								"</th>" +
+								"<td>" +
+									"<img class='activeImg' src='" + eArtistImage + "'>" +
+								"</td>" +
+							"</tr>" +
+							"<tr id='6row'>" +
+								"<th>" +
+									"Preview" +
+								"</th>" +
+								"<td>" +
+									"<audio id='audios' src='" + eAudio + "' type='audio/mp3' controls></audio>" +
+								"</td>" +
+							"</tr>" +
+							
+						"</table>" +
+					"</li>"
+				);
+				
+			/*
+				$("#bxSlider").append(
+					"<br><b>Artist's image: </b><img src='" + eArtistImage + "'>" +
+					"<br><b>Audio: </b><audio controls><source src='" + eAudio + "' type='audio/mp3'></audio>" +
+					"<br><b>Title: </b>" + eTitle + 
+					"<br><b>Artist name: </b>" + eArtistName + 
+					"<br><b>Album name: </b>" + eAlbumName +
+					"<br>------------------"
+				);
+			*/	
+			
 			});
+			$("#footer").attr("id", "footer2");
+			loadSlider();
 		}, "xml");
+		
 	});
 });

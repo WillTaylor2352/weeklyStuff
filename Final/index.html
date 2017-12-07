@@ -8,25 +8,30 @@
 	<meta charset="UTF-8">
 	<title>Top songs by country</title>
 	
-<!--css of plugins-->
+<!--css of plugins----------------------------------------------->
 
 	<!--for jqueryui-->
-	<link rel="stylesheet" href="css/jquery-ui.css"></link>
+	<link rel="stylesheet" href="css/jquery-ui.css">
 	
-<!--Jquery-->	
+	<!--for bxslider-->
+	<link rel="stylesheet" href="css/jquery.bxslider.css">
+	
+<!--Jquery------------------------------------------------------->	
 	
 	<!--Link to jquery-->
 	<script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
 	
-<!--Plugins-->	
-	
 	<!--Link to jqueryUI-->
 	<script type="text/javascript" src="scripts/jquery-ui.min.js"></script>
 	
-<!--local css and js-->
+<!--Link to Plugins---------------------------------------------->
+
+	<script type="text/javascript" src="scripts/jquery.bxslider.js"></script>
+
+<!--local css and js--------------------------------------------->
 
 	<!--my css---->
-	<link rel="stylesheet" href="css/main.css"></link>
+	<link rel="stylesheet" href="css/main.css">
 	
 	<!--Link to local scripts-->
 	<script type="text/javascript" src="scripts/local.js"></script>	
@@ -41,7 +46,6 @@
 	<div id="selector">
 		<label for="countrySelect">Select a country</label>
 		<select name="countrySelect" id="countrySel">
-			<option disabled >Please pick one</option>
 			<option value="us" selected>United States</option>
 			<option value="in">India</option>
 			<option value="tr">Turkey</option>
@@ -49,9 +53,9 @@
 		</select>
 	</div>
 	
-	<div id="slider"></div>
+	<div id="quantitySlider"></div>
 	
-	<input type="text" id="numberOfSongs" value="10">
+	<input type="text" id="numberOfSongs" value="5">
 	<input type="button" id="submit" value="Submit">
 	
 <!--code for displaying data after this point-->	
@@ -59,20 +63,16 @@
 		<p id="data"></p>
 	</div>
 	
-	<input type="text" id="etitle" value="" disabled>
-	<input type="text" id="eaname" value="" disabled>
-	<input type="text" id="ealname" value="" disabled>
-	<input type="text" id="eimgsrc" value="" disabled>
-	<input type="text" id="eaudio" value="" disabled>
-	
-	
-	
-	
+	<div id="bxSlideWrap">
+		<ul id="bxSlider">
+			
+		</ul>
+	</div>
 	
 	
 <!--code for the footer after this point-->
 	<div id="footer">
-		<p>
+		<p id="pfooter">
 			&copy William Taylor <a href="mailto:willtaylorofficial@yahoo.com?Subject=QCC%20Final%20Project" target="_top">willtaylorofficial@yahoo.com</a> 
 		</p>
 	</div>
